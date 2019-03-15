@@ -4,7 +4,7 @@
 
 	<groupId>com.ibm.cos.config</groupId>
 	<artifactId>ibm-cos-java-config</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>IBM COS Config SDK for Java</name>
