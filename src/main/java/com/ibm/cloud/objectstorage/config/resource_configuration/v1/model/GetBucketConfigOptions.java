@@ -29,7 +29,7 @@ public class GetBucketConfigOptions extends GenericModel {
     private String bucket;
 
     private Builder(GetBucketConfigOptions getBucketConfigOptions) {
-      bucket = getBucketConfigOptions.bucket;
+      this.bucket = getBucketConfigOptions.bucket;
     }
 
     /**

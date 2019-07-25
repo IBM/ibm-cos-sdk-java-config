@@ -22,6 +22,7 @@ public class UpdateBucketConfigOptions extends GenericModel {
 
   private String bucket;
   private Firewall firewall;
+  private ActivityTracking activityTracking;
   private String ifMatch;
 
   /**
@@ -30,12 +31,14 @@ public class UpdateBucketConfigOptions extends GenericModel {
   public static class Builder {
     private String bucket;
     private Firewall firewall;
+    private ActivityTracking activityTracking;
     private String ifMatch;
 
     private Builder(UpdateBucketConfigOptions updateBucketConfigOptions) {
-      bucket = updateBucketConfigOptions.bucket;
-      firewall = updateBucketConfigOptions.firewall;
-      ifMatch = updateBucketConfigOptions.ifMatch;
+      this.bucket = updateBucketConfigOptions.bucket;
+      this.firewall = updateBucketConfigOptions.firewall;
+      this.activityTracking = updateBucketConfigOptions.activityTracking;
+      this.ifMatch = updateBucketConfigOptions.ifMatch;
     }
 
     /**
@@ -85,6 +88,17 @@ public class UpdateBucketConfigOptions extends GenericModel {
     }
 
     /**
+     * Set the activityTracking.
+     *
+     * @param activityTracking the activityTracking
+     * @return the UpdateBucketConfigOptions builder
+     */
+    public Builder activityTracking(ActivityTracking activityTracking) {
+      this.activityTracking = activityTracking;
+      return this;
+    }
+
+    /**
      * Set the ifMatch.
      *
      * @param ifMatch the ifMatch
@@ -100,6 +114,7 @@ public class UpdateBucketConfigOptions extends GenericModel {
     Validator.notEmpty(builder.bucket, "bucket cannot be empty");
     bucket = builder.bucket;
     firewall = builder.firewall;
+    activityTracking = builder.activityTracking;
     ifMatch = builder.ifMatch;
   }
 
@@ -135,6 +150,18 @@ public class UpdateBucketConfigOptions extends GenericModel {
    */
   public Firewall firewall() {
     return firewall;
+  }
+
+  /**
+   * Gets the activityTracking.
+   *
+   * Enables sending log data to Activity Tracker and LogDNA to provide visibility into object read and write events.
+   * All object events are sent to the activity tracker instance defined in the `activity_tracker_crn` field.
+   *
+   * @return the activityTracking
+   */
+  public ActivityTracking activityTracking() {
+    return activityTracking;
   }
 
   /**

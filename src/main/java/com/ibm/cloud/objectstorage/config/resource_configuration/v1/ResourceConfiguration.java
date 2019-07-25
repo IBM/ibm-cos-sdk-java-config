@@ -80,6 +80,7 @@ public class ResourceConfiguration extends BaseService {
     for (Entry<String, String> header : sdkHeaders.entrySet()) {
       builder.header(header.getKey(), header.getValue());
     }
+    builder.header("Accept", "application/json");
     return createServiceCall(builder.build(), ResponseConverterUtils.getObject(Bucket.class));
   }
 
@@ -111,6 +112,9 @@ public class ResourceConfiguration extends BaseService {
     final JsonObject contentJson = new JsonObject();
     if (updateBucketConfigOptions.firewall() != null) {
       contentJson.add("firewall", GsonSingleton.getGson().toJsonTree(updateBucketConfigOptions.firewall()));
+    }
+    if (updateBucketConfigOptions.activityTracking() != null) {
+      contentJson.add("activity_tracking", GsonSingleton.getGson().toJsonTree(updateBucketConfigOptions.activityTracking()));
     }
     builder.bodyJson(contentJson);
     return createServiceCall(builder.build(), ResponseConverterUtils.getVoid());

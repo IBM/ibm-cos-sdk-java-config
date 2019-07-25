@@ -37,6 +37,8 @@ public class Bucket extends GenericModel {
   @SerializedName("bytes_used")
   private Long bytesUsed;
   private Firewall firewall;
+  @SerializedName("activity_tracking")
+  private ActivityTracking activityTracking;
 
   /**
    * Gets the name.
@@ -138,6 +140,18 @@ public class Bucket extends GenericModel {
    */
   public Firewall getFirewall() {
     return firewall;
+  }
+
+  /**
+   * Gets the activityTracking.
+   *
+   * Enables sending log data to Activity Tracker and LogDNA to provide visibility into object read and write events.
+   * All object events are sent to the activity tracker instance defined in the `activity_tracker_crn` field.
+   *
+   * @return the activityTracking
+   */
+  public ActivityTracking getActivityTracking() {
+    return activityTracking;
   }
 }
 

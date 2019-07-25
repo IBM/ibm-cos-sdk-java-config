@@ -4,7 +4,7 @@
 
 	<groupId>com.ibm.cos.config</groupId>
 	<artifactId>ibm-cos-java-config</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.1.0</version>
 	<packaging>jar</packaging>
 
 	<name>IBM COS Config SDK for Java</name>
@@ -35,6 +35,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<junit.version>4.11</junit.version>
 	</properties>
 
 	<distributionManagement>
@@ -47,10 +48,19 @@
 			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
 		</repository>
 	</distributionManagement>
-	<dependencyManagement>
-		<dependencies>
-		</dependencies>
-	</dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.ibm.cloud</groupId>
+            <artifactId>sdk-core</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+    </dependencies>
 
 	<reporting>
 		<plugins>
@@ -69,6 +79,22 @@
 		</plugins>
 	</reporting>
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/version.properties</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>false</filtering>
+				<excludes>
+					<exclude>**/version.properties</exclude>
+				</excludes>
+			</resource>
+		</resources>
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -142,11 +168,4 @@
 			</build>
 		</profile>
 	</profiles>
-	<dependencies>
-		<dependency>
-			<groupId>com.ibm.cloud</groupId>
-			<artifactId>sdk-core</artifactId>
-			<version>2.0.0</version>
-		</dependency>
-	</dependencies>
 </project>
