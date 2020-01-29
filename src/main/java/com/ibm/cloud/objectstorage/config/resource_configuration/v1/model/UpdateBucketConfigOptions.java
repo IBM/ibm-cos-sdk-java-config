@@ -23,6 +23,7 @@ public class UpdateBucketConfigOptions extends GenericModel {
   private String bucket;
   private Firewall firewall;
   private ActivityTracking activityTracking;
+  private MetricsMonitoring metricsMonitoring;
   private String ifMatch;
 
   /**
@@ -32,12 +33,14 @@ public class UpdateBucketConfigOptions extends GenericModel {
     private String bucket;
     private Firewall firewall;
     private ActivityTracking activityTracking;
+    private MetricsMonitoring metricsMonitoring;
     private String ifMatch;
 
     private Builder(UpdateBucketConfigOptions updateBucketConfigOptions) {
       this.bucket = updateBucketConfigOptions.bucket;
       this.firewall = updateBucketConfigOptions.firewall;
       this.activityTracking = updateBucketConfigOptions.activityTracking;
+      this.metricsMonitoring = updateBucketConfigOptions.metricsMonitoring;
       this.ifMatch = updateBucketConfigOptions.ifMatch;
     }
 
@@ -99,6 +102,17 @@ public class UpdateBucketConfigOptions extends GenericModel {
     }
 
     /**
+     * Set the metricsMonitoring.
+     *
+     * @param metricsMonitoring the metricsMonitoring
+     * @return the UpdateBucketConfigOptions builder
+     */
+    public Builder metricsMonitoring(MetricsMonitoring metricsMonitoring) {
+      this.metricsMonitoring = metricsMonitoring;
+      return this;
+    }
+
+    /**
      * Set the ifMatch.
      *
      * @param ifMatch the ifMatch
@@ -115,6 +129,7 @@ public class UpdateBucketConfigOptions extends GenericModel {
     bucket = builder.bucket;
     firewall = builder.firewall;
     activityTracking = builder.activityTracking;
+    metricsMonitoring = builder.metricsMonitoring;
     ifMatch = builder.ifMatch;
   }
 
@@ -162,6 +177,18 @@ public class UpdateBucketConfigOptions extends GenericModel {
    */
   public ActivityTracking activityTracking() {
     return activityTracking;
+  }
+
+  /**
+   * Gets the metricsMonitoring.
+   *
+   * Enables sending metrics to IBM Cloud Monitoring. All metrics are sent to the IBM Cloud Monitoring instance defined
+   * in the `monitoring_crn` field.
+   *
+   * @return the metricsMonitoring
+   */
+  public MetricsMonitoring metricsMonitoring() {
+    return metricsMonitoring;
   }
 
   /**

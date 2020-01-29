@@ -18,6 +18,7 @@ import com.ibm.cloud.objectstorage.config.resource_configuration.v1.model.Bucket
 import com.ibm.cloud.objectstorage.config.resource_configuration.v1.model.GetBucketConfigOptions;
 import com.ibm.cloud.objectstorage.config.resource_configuration.v1.model.UpdateBucketConfigOptions;
 import com.ibm.cloud.sdk.core.http.RequestBuilder;
+import com.ibm.cloud.sdk.core.http.ResponseConverter;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.cloud.sdk.core.service.BaseService;
 import com.ibm.cloud.sdk.core.service.security.IamOptions;
@@ -116,8 +117,12 @@ public class ResourceConfiguration extends BaseService {
     if (updateBucketConfigOptions.activityTracking() != null) {
       contentJson.add("activity_tracking", GsonSingleton.getGson().toJsonTree(updateBucketConfigOptions.activityTracking()));
     }
+    if (updateBucketConfigOptions.metricsMonitoring() != null) {
+      contentJson.add("metrics_monitoring", GsonSingleton.getGson().toJsonTree(updateBucketConfigOptions.metricsMonitoring()));
+    }
     builder.bodyJson(contentJson);
-    return createServiceCall(builder.build(), ResponseConverterUtils.getVoid());
+    ResponseConverter<Void> responseConverter = ResponseConverterUtils.getVoid();
+    return createServiceCall(builder.build(), responseConverter);
   }
 
 }

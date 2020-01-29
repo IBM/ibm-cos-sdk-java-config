@@ -39,6 +39,8 @@ public class Bucket extends GenericModel {
   private Firewall firewall;
   @SerializedName("activity_tracking")
   private ActivityTracking activityTracking;
+  @SerializedName("metrics_monitoring")
+  private MetricsMonitoring metricsMonitoring;
 
   /**
    * Gets the name.
@@ -152,6 +154,18 @@ public class Bucket extends GenericModel {
    */
   public ActivityTracking getActivityTracking() {
     return activityTracking;
+  }
+
+  /**
+   * Gets the metricsMonitoring.
+   *
+   * Enables sending metrics to IBM Cloud Monitoring. All metrics are sent to the IBM Cloud Monitoring instance defined
+   * in the `monitoring_crn` field.
+   *
+   * @return the metricsMonitoring
+   */
+  public MetricsMonitoring getMetricsMonitoring() {
+    return metricsMonitoring;
   }
 }
 
