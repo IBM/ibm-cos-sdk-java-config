@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"com.ibm.cloud.objectstorage.config.common"},{"l":"com.ibm.cloud.objectstorage.config.resource_configuration.v1"},{"l":"com.ibm.cloud.objectstorage.config.resource_configuration.v1.model"}]
