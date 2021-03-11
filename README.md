@@ -11,21 +11,23 @@ Cloud Object Storage](https://cloud.ibm.com/apidocs/cos/cos-configuration).
 
 Changes to the SDK are tracked in the [CHANGELOG.md][changes-file] file.
 
-  - [IBM COS Resource Configuration SDK for Java](#ibm-cos-resource-configuration-sdk-for-java)
-  - [Documentation](#documentation)
-  - [Quick start](#quick-start)
-  - [Getting the SDK](#getting-the-sdk)
-  - [Building from source](#building-from-source)
-  - [Getting help](#getting-help)
-  - [License](#license)
+* [IBM COS Resource Configuration SDK for Java](#ibm-cos-resource-configuration-sdk-for-java)
+* [Documentation](#documentation)
+* [Quick start](#quick-start)
+* [Getting the SDK](#getting-the-sdk)
+* [Building from source](#building-from-source)
+* [Getting help](#getting-help)
+* [License](#license)
 
 ## Quick start
+
 You'll need:
-  * An instance of COS.
-  * An API key from [IBM Cloud Identity and Access Management](https://cloud.ibm.com/docs/iam/users_roles.html).
-  * **Java 1.6+**
+
+* An instance of COS.
+* An API key from [IBM Cloud Identity and Access Management](https://cloud.ibm.com/docs/iam/users_roles.html).
 
 ## Getting the SDK
+
 The recommended way to use the IBM COS SDKs for Java in your project is to consume it from Maven. Import the `ibm-cos-java-config` and specify the SDK Maven modules that your project needs in the dependencies:
 
 ```xml
@@ -46,6 +48,7 @@ mvn clean install
 ```
 
 ## Getting help
+
 Feel free to use GitHub issues for tracking bugs and feature requests, but for help please use one of the following resources:
 
 * Read a quick start guide in [IBM Cloud Docs][bluemix-docs]
