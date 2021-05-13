@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 1.3.0
+
+### Content
+
+#### Features
+
+* Block Public Anonymous Access
+* COS Request Metrics Monitoring
+* COS Quota
+* Object Versioning Metrics
+
 ## 1.2.1
 
 ### Content

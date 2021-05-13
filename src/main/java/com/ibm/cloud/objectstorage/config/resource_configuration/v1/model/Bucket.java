@@ -36,6 +36,14 @@ public class Bucket extends GenericModel {
   private Long objectCount;
   @SerializedName("bytes_used")
   private Long bytesUsed;
+  @SerializedName("noncurrent_object_count")
+  private Long noncurrentObjectCount;
+  @SerializedName("noncurrent_bytes_used")
+  private Long noncurrentBytesUsed;
+  @SerializedName("delete_marker_count")
+  private Long deleteMarkerCount;
+  @SerializedName("hard_quota")
+  private Long hardQuota;
   private Firewall firewall;
   @SerializedName("activity_tracking")
   private ActivityTracking activityTracking;
@@ -128,6 +136,50 @@ public class Bucket extends GenericModel {
    */
   public Long getBytesUsed() {
     return bytesUsed;
+  }
+
+  /**
+   * Gets the noncurrentObjectCount.
+   *
+   * Number of non-current object versions in the bucket. Non-mutable.
+   *
+   * @return the noncurrentObjectCount
+   */
+  public Long getNoncurrentObjectCount() {
+    return noncurrentObjectCount;
+  }
+
+  /**
+   * Gets the noncurrentBytesUsed.
+   *
+   * Total size of all non-current object versions in the bucket. Non-mutable.
+   *
+   * @return the noncurrentBytesUsed
+   */
+  public Long getNoncurrentBytesUsed() {
+    return noncurrentBytesUsed;
+  }
+
+  /**
+   * Gets the deleteMarkerCount.
+   *
+   * Total number of delete markers in the bucket. Non-mutable.
+   *
+   * @return the deleteMarkerCount
+   */
+  public Long getDeleteMarkerCount() {
+    return deleteMarkerCount;
+  }
+
+  /**
+   * Gets the hardQuota.
+   *
+   * Maximum bytes for this bucket.
+   *
+   * @return the hardQuota
+   */
+  public Long getHardQuota() {
+    return hardQuota;
   }
 
   /**

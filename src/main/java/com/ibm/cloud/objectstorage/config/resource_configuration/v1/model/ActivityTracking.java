@@ -53,7 +53,7 @@ public class ActivityTracking extends GenericModel {
   /**
    * Gets the activityTrackerCrn.
    *
-   * Required the first time `activity_tracking` is configured. The instance of Activity Tracker that will recieve
+   * Required the first time `activity_tracking` is configured. The instance of Activity Tracker that will receive
    * object event data. The format is "crn:v1:bluemix:public:logdnaat:{bucket location}:a/{storage account}:{activity
    * tracker service instance}::".
    *

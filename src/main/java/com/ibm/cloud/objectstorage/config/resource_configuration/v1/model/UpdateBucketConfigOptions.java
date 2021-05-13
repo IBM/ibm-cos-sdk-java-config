@@ -24,6 +24,7 @@ public class UpdateBucketConfigOptions extends GenericModel {
   private Firewall firewall;
   private ActivityTracking activityTracking;
   private MetricsMonitoring metricsMonitoring;
+  private Long hardQuota;
   private String ifMatch;
 
   /**
@@ -34,6 +35,7 @@ public class UpdateBucketConfigOptions extends GenericModel {
     private Firewall firewall;
     private ActivityTracking activityTracking;
     private MetricsMonitoring metricsMonitoring;
+    private Long hardQuota;
     private String ifMatch;
 
     private Builder(UpdateBucketConfigOptions updateBucketConfigOptions) {
@@ -41,6 +43,7 @@ public class UpdateBucketConfigOptions extends GenericModel {
       this.firewall = updateBucketConfigOptions.firewall;
       this.activityTracking = updateBucketConfigOptions.activityTracking;
       this.metricsMonitoring = updateBucketConfigOptions.metricsMonitoring;
+      this.hardQuota = updateBucketConfigOptions.hardQuota;
       this.ifMatch = updateBucketConfigOptions.ifMatch;
     }
 
@@ -113,6 +116,17 @@ public class UpdateBucketConfigOptions extends GenericModel {
     }
 
     /**
+     * Set the hardQuota.
+     *
+     * @param hardQuota the hardQuota
+     * @return the UpdateBucketConfigOptions builder
+     */
+    public Builder hardQuota(long hardQuota) {
+      this.hardQuota = hardQuota;
+      return this;
+    }
+
+    /**
      * Set the ifMatch.
      *
      * @param ifMatch the ifMatch
@@ -130,6 +144,7 @@ public class UpdateBucketConfigOptions extends GenericModel {
     firewall = builder.firewall;
     activityTracking = builder.activityTracking;
     metricsMonitoring = builder.metricsMonitoring;
+    hardQuota = builder.hardQuota;
     ifMatch = builder.ifMatch;
   }
 
@@ -189,6 +204,17 @@ public class UpdateBucketConfigOptions extends GenericModel {
    */
   public MetricsMonitoring metricsMonitoring() {
     return metricsMonitoring;
+  }
+
+  /**
+   * Gets the hardQuota.
+   *
+   * Maximum bytes for this bucket.
+   *
+   * @return the hardQuota
+   */
+  public Long hardQuota() {
+    return hardQuota;
   }
 
   /**

@@ -23,6 +23,8 @@ public class MetricsMonitoring extends GenericModel {
 
   @SerializedName("usage_metrics_enabled")
   private Boolean usageMetricsEnabled;
+  @SerializedName("request_metrics_enabled")
+  private Boolean requestMetricsEnabled;
   @SerializedName("metrics_monitoring_crn")
   private String metricsMonitoringCrn;
 
@@ -35,6 +37,17 @@ public class MetricsMonitoring extends GenericModel {
    */
   public Boolean isUsageMetricsEnabled() {
     return usageMetricsEnabled;
+  }
+
+  /**
+   * Gets the requestMetricsEnabled.
+   *
+   * If set to `true`, all request metrics (i.e. `rest.object.head`) will be sent to the monitoring service.
+   *
+   * @return the requestMetricsEnabled
+   */
+  public Boolean isRequestMetricsEnabled() {
+    return requestMetricsEnabled;
   }
 
   /**
@@ -57,6 +70,15 @@ public class MetricsMonitoring extends GenericModel {
    */
   public void setUsageMetricsEnabled(final Boolean usageMetricsEnabled) {
     this.usageMetricsEnabled = usageMetricsEnabled;
+  }
+
+  /**
+   * Sets the requestMetricsEnabled.
+   *
+   * @param requestMetricsEnabled the new requestMetricsEnabled
+   */
+  public void setRequestMetricsEnabled(final Boolean requestMetricsEnabled) {
+    this.requestMetricsEnabled = requestMetricsEnabled;
   }
 
   /**

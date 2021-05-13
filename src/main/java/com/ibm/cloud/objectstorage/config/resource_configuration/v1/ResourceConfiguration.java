@@ -18,7 +18,6 @@ import com.ibm.cloud.objectstorage.config.resource_configuration.v1.model.Bucket
 import com.ibm.cloud.objectstorage.config.resource_configuration.v1.model.GetBucketConfigOptions;
 import com.ibm.cloud.objectstorage.config.resource_configuration.v1.model.UpdateBucketConfigOptions;
 import com.ibm.cloud.sdk.core.http.RequestBuilder;
-import com.ibm.cloud.sdk.core.http.ResponseConverter;
 import com.ibm.cloud.sdk.core.http.ServiceCall;
 import com.ibm.cloud.sdk.core.service.BaseService;
 import com.ibm.cloud.sdk.core.service.security.IamOptions;
@@ -30,7 +29,7 @@ import java.util.Map.Entry;
 
 /**
  * REST API used to configure Cloud Object Storage buckets.  This version of the API only supports reading bucket
- * metadata and setting IP access controls.
+ * metadata, setting IP access controls, and configuring logging and monitoring services.
  *
  * @version v1
  * @see <a href="http://www.ibm.com/watson/developercloud/resource-configuration.html">ResourceConfiguration</a>
@@ -120,9 +119,11 @@ public class ResourceConfiguration extends BaseService {
     if (updateBucketConfigOptions.metricsMonitoring() != null) {
       contentJson.add("metrics_monitoring", GsonSingleton.getGson().toJsonTree(updateBucketConfigOptions.metricsMonitoring()));
     }
+    if (updateBucketConfigOptions.hardQuota() != null) {
+      contentJson.addProperty("hard_quota", updateBucketConfigOptions.hardQuota());
+    }
     builder.bodyJson(contentJson);
-    ResponseConverter<Void> responseConverter = ResponseConverterUtils.getVoid();
-    return createServiceCall(builder.build(), responseConverter);
+    return createServiceCall(builder.build(), ResponseConverterUtils.getVoid());
   }
 
 }
