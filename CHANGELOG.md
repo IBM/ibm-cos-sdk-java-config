@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## 2.0.0
+
+### Content
+
+#### Defect Fixes
+
+* Update dependencies
+
+#### BREAKING CHANGES
+
+* Changes in ```Package imports, Create Client, API methods and Response```.
+
+For more details, refer [MIGRATION-GUIDE](MIGRATION-V1.md).
+
 ## 1.3.0
 
 ### Content
