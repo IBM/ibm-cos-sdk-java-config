@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 2.0.1
+
+### Content
+
+#### Defect Fixes
+
+* Update dependencies
+
 ## 2.0.0
 
 ### Content

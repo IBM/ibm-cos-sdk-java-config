@@ -35,7 +35,7 @@ import java.util.Map.Entry;
 /**
  * REST API used to configure Cloud Object Storage buckets.
  *
- * API Version: 2.0.0
+ * API Version: 2.0.1
  */
 public class ResourceConfiguration extends BaseService {
 
