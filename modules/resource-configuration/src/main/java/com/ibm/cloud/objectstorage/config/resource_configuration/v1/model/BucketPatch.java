@@ -1,5 +1,5 @@
 /*
- * (C) Copyright IBM Corp. 2022.
+ * (C) Copyright IBM Corp. 2024.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -30,6 +30,8 @@ public class BucketPatch extends GenericModel {
   protected MetricsMonitoring metricsMonitoring;
   @SerializedName("hard_quota")
   protected Long hardQuota;
+  @SerializedName("protection_management")
+  protected ProtectionManagement protectionManagement;
 
   /**
    * Builder.
@@ -39,6 +41,7 @@ public class BucketPatch extends GenericModel {
     private ActivityTracking activityTracking;
     private MetricsMonitoring metricsMonitoring;
     private Long hardQuota;
+    private ProtectionManagement protectionManagement;
 
     /**
      * Instantiates a new Builder from an existing BucketPatch instance.
@@ -50,6 +53,7 @@ public class BucketPatch extends GenericModel {
       this.activityTracking = bucketPatch.activityTracking;
       this.metricsMonitoring = bucketPatch.metricsMonitoring;
       this.hardQuota = bucketPatch.hardQuota;
+      this.protectionManagement = bucketPatch.protectionManagement;
     }
 
     /**
@@ -110,6 +114,17 @@ public class BucketPatch extends GenericModel {
       this.hardQuota = hardQuota;
       return this;
     }
+
+    /**
+     * Set the protectionManagement.
+     *
+     * @param protectionManagement the protectionManagement
+     * @return the BucketPatch builder
+     */
+    public Builder protectionManagement(ProtectionManagement protectionManagement) {
+      this.protectionManagement = protectionManagement;
+      return this;
+    }
   }
 
   protected BucketPatch() { }
@@ -119,6 +134,7 @@ public class BucketPatch extends GenericModel {
     activityTracking = builder.activityTracking;
     metricsMonitoring = builder.metricsMonitoring;
     hardQuota = builder.hardQuota;
+    protectionManagement = builder.protectionManagement;
   }
 
   /**
@@ -177,6 +193,17 @@ public class BucketPatch extends GenericModel {
    */
   public Long hardQuota() {
     return hardQuota;
+  }
+
+  /**
+   * Gets the protectionManagement.
+   *
+   * Data structure holding protection management operations.
+   *
+   * @return the protectionManagement
+   */
+  public ProtectionManagement protectionManagement() {
+    return protectionManagement;
   }
 
   /**

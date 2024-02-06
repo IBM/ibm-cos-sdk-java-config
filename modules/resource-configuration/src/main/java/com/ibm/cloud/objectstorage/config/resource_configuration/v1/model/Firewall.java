@@ -1,5 +1,5 @@
 /*
- * (C) Copyright IBM Corp. 2022.
+ * (C) Copyright IBM Corp. 2024.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -83,9 +83,9 @@ public class Firewall extends GenericModel {
     }
 
     /**
-     * Adds an allowedIp to allowedIp.
+     * Adds a new element to allowedIp.
      *
-     * @param allowedIp the new allowedIp
+     * @param allowedIp the new element to be added
      * @return the Firewall builder
      */
     public Builder addAllowedIp(String allowedIp) {
@@ -99,9 +99,9 @@ public class Firewall extends GenericModel {
     }
 
     /**
-     * Adds an deniedIp to deniedIp.
+     * Adds a new element to deniedIp.
      *
-     * @param deniedIp the new deniedIp
+     * @param deniedIp the new element to be added
      * @return the Firewall builder
      */
     public Builder addDeniedIp(String deniedIp) {
@@ -115,9 +115,9 @@ public class Firewall extends GenericModel {
     }
 
     /**
-     * Adds an allowedNetworkType to allowedNetworkType.
+     * Adds a new element to allowedNetworkType.
      *
-     * @param allowedNetworkType the new allowedNetworkType
+     * @param allowedNetworkType the new element to be added
      * @return the Firewall builder
      */
     public Builder addAllowedNetworkType(String allowedNetworkType) {

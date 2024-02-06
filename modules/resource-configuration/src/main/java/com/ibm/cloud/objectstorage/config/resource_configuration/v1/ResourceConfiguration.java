@@ -1,5 +1,5 @@
 /*
- * (C) Copyright IBM Corp. 2022.
+ * (C) Copyright IBM Corp. 2024.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -12,7 +12,7 @@
  */
 
 /*
- * IBM OpenAPI SDK Code Generator Version: 3.61.0-1667892a-20221109-194550
+ * IBM OpenAPI SDK Code Generator Version: 3.84.1-55f6d880-20240110-194020
  */
 
 package com.ibm.cloud.objectstorage.config.resource_configuration.v1;
@@ -35,7 +35,7 @@ import java.util.Map.Entry;
 /**
  * REST API used to configure Cloud Object Storage buckets.
  *
- * API Version: 2.0.1
+ * API Version: 2.0.2
  */
 public class ResourceConfiguration extends BaseService {
 
