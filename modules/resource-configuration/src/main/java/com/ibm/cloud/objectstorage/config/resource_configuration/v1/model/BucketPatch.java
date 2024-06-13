@@ -10,6 +10,7 @@
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
+
 package com.ibm.cloud.objectstorage.config.resource_configuration.v1.model;
 
 import java.util.Map;
@@ -163,8 +164,11 @@ public class BucketPatch extends GenericModel {
   /**
    * Gets the activityTracking.
    *
-   * Enables sending log data to IBM Cloud Activity Tracker to provide visibility into object read and write events. All
-   * object events are sent to the activity tracker instance defined in the `activity_tracker_crn` field.
+   * Enables sending log data to IBM Cloud Activity Tracker Event Routing to provide visibility into bucket management,
+   * object read and write events. (Recommended) When the `activity_tracker_crn` is not populated, then enabled events
+   * are sent to the Activity Tracker Event Routing instance at the container's location unless otherwise specified in
+   * the Activity Tracker Event Routing Event Routing service configuration. (Legacy) When the `activity_tracker_crn` is
+   * populated, then enabled events are sent to the Activity Tracker Event Routing instance specified.
    *
    * @return the activityTracking
    */
@@ -175,8 +179,11 @@ public class BucketPatch extends GenericModel {
   /**
    * Gets the metricsMonitoring.
    *
-   * Enables sending metrics to IBM Cloud Monitoring. All metrics are sent to the IBM Cloud Monitoring instance defined
-   * in the `monitoring_crn` field.
+   * Enables sending metrics to IBM Cloud Monitoring.  All metrics are opt-in. (Recommended) When the
+   * `metrics_monitoring_crn` is not populated, then enabled metrics are sent to the Monitoring instance at the
+   * container's location unless otherwise specified in the Metrics Router service configuration. (Legacy) When the
+   * `metrics_monitoring_crn` is populated, then enabled metrics are sent to the Monitoring instance defined in the
+   * `metrics_monitoring_crn` field.
    *
    * @return the metricsMonitoring
    */
@@ -217,6 +224,5 @@ public class BucketPatch extends GenericModel {
   public Map<String, Object> asPatch() {
     return GsonSingleton.getGson().fromJson(this.toString(), Map.class);
   }
-
 }
 

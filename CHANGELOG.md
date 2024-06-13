@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 2.1.0
+
+### Content
+
+#### Features
+
+* Sysdig Event Routing and Activity Tracker Routing Support
+
+#### Defect Fixes
+
+* Update dependencies
+
 ## 2.0.2
 
 ### Content

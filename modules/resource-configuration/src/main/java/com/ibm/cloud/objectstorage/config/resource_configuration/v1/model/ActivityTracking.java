@@ -10,14 +10,18 @@
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
+
 package com.ibm.cloud.objectstorage.config.resource_configuration.v1.model;
 
 import com.google.gson.annotations.SerializedName;
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
 /**
- * Enables sending log data to IBM Cloud Activity Tracker to provide visibility into object read and write events. All
- * object events are sent to the activity tracker instance defined in the `activity_tracker_crn` field.
+ * Enables sending log data to IBM Cloud Activity Tracker Event Routing to provide visibility into bucket management,
+ * object read and write events. (Recommended) When the `activity_tracker_crn` is not populated, then enabled events are
+ * sent to the Activity Tracker Event Routing instance at the container's location unless otherwise specified in the
+ * Activity Tracker Event Routing Event Routing service configuration. (Legacy) When the `activity_tracker_crn` is
+ * populated, then enabled events are sent to the Activity Tracker Event Routing instance specified.
  */
 public class ActivityTracking extends GenericModel {
 
@@ -27,6 +31,8 @@ public class ActivityTracking extends GenericModel {
   protected Boolean writeDataEvents;
   @SerializedName("activity_tracker_crn")
   protected String activityTrackerCrn;
+  @SerializedName("management_events")
+  protected Boolean managementEvents;
 
   /**
    * Builder.
@@ -35,6 +41,7 @@ public class ActivityTracking extends GenericModel {
     private Boolean readDataEvents;
     private Boolean writeDataEvents;
     private String activityTrackerCrn;
+    private Boolean managementEvents;
 
     /**
      * Instantiates a new Builder from an existing ActivityTracking instance.
@@ -45,6 +52,7 @@ public class ActivityTracking extends GenericModel {
       this.readDataEvents = activityTracking.readDataEvents;
       this.writeDataEvents = activityTracking.writeDataEvents;
       this.activityTrackerCrn = activityTracking.activityTrackerCrn;
+      this.managementEvents = activityTracking.managementEvents;
     }
 
     /**
@@ -94,6 +102,17 @@ public class ActivityTracking extends GenericModel {
       this.activityTrackerCrn = activityTrackerCrn;
       return this;
     }
+
+    /**
+     * Set the managementEvents.
+     *
+     * @param managementEvents the managementEvents
+     * @return the ActivityTracking builder
+     */
+    public Builder managementEvents(Boolean managementEvents) {
+      this.managementEvents = managementEvents;
+      return this;
+    }
   }
 
   protected ActivityTracking() { }
@@ -102,6 +121,7 @@ public class ActivityTracking extends GenericModel {
     readDataEvents = builder.readDataEvents;
     writeDataEvents = builder.writeDataEvents;
     activityTrackerCrn = builder.activityTrackerCrn;
+    managementEvents = builder.managementEvents;
   }
 
   /**
@@ -116,7 +136,7 @@ public class ActivityTracking extends GenericModel {
   /**
    * Gets the readDataEvents.
    *
-   * If set to `true`, all object read events (i.e. downloads) will be sent to Activity Tracker.
+   * If set to `true`, all object read events (i.e. downloads) will be sent to Activity Tracker Event Routing.
    *
    * @return the readDataEvents
    */
@@ -127,7 +147,7 @@ public class ActivityTracking extends GenericModel {
   /**
    * Gets the writeDataEvents.
    *
-   * If set to `true`, all object write events (i.e. uploads) will be sent to Activity Tracker.
+   * If set to `true`, all object write events (i.e. uploads) will be sent to Activity Tracker Event Routing.
    *
    * @return the writeDataEvents
    */
@@ -138,14 +158,27 @@ public class ActivityTracking extends GenericModel {
   /**
    * Gets the activityTrackerCrn.
    *
-   * Required the first time `activity_tracking` is configured. The instance of Activity Tracker that will receive
-   * object event data. The format is "crn:v1:bluemix:public:logdnaat:{bucket location}:a/{storage account}:{activity
-   * tracker service instance}::".
+   * When the `activity_tracker_crn` is not populated, then enabled events are sent to the Activity Tracker Event
+   * Routing instance associated to the container's location unless otherwise specified in the Activity Tracker Event
+   * Routing Event Routing service configuration. If `activity_tracker_crn` is populated, then enabled events are sent
+   * to the Activity Tracker Event Routing instance specified and bucket management events are always enabled.
    *
    * @return the activityTrackerCrn
    */
   public String activityTrackerCrn() {
     return activityTrackerCrn;
+  }
+
+  /**
+   * Gets the managementEvents.
+   *
+   * This field only applies if `activity_tracker_crn` is not populated. If set to `true`, all bucket management events
+   * will be sent to Activity Tracker Event Routing.
+   *
+   * @return the managementEvents
+   */
+  public Boolean managementEvents() {
+    return managementEvents;
   }
 }
 

@@ -12,12 +12,15 @@
  */
 
 /*
- * IBM OpenAPI SDK Code Generator Version: 3.84.1-55f6d880-20240110-194020
+ * IBM OpenAPI SDK Code Generator Version: 3.91.0-d9755c53-20240605-153412
  */
 
 package com.ibm.cloud.objectstorage.config.resource_configuration.v1;
 
 import com.ibm.cloud.objectstorage.common.SdkCommon;
+/*
+ * Don't edit the import - com.ibm.cloud.objectstorage.common.SdkCommon;
+ */
 import com.ibm.cloud.objectstorage.config.resource_configuration.v1.model.Bucket;
 import com.ibm.cloud.objectstorage.config.resource_configuration.v1.model.GetBucketConfigOptions;
 import com.ibm.cloud.objectstorage.config.resource_configuration.v1.model.UpdateBucketConfigOptions;
@@ -35,7 +38,7 @@ import java.util.Map.Entry;
 /**
  * REST API used to configure Cloud Object Storage buckets.
  *
- * API Version: 2.0.2
+ * API Version: 2.1.0
  */
 public class ResourceConfiguration extends BaseService {
 
@@ -133,7 +136,7 @@ public class ResourceConfiguration extends BaseService {
       builder.header(header.getKey(), header.getValue());
     }
     if (updateBucketConfigOptions.ifMatch() != null) {
-      builder.header("if-match", updateBucketConfigOptions.ifMatch());
+      builder.header("If-Match", updateBucketConfigOptions.ifMatch());
     }
     if (updateBucketConfigOptions.bucketPatch() != null) {
       builder.bodyContent(com.ibm.cloud.sdk.core.util.GsonSingleton.getGsonWithoutPrettyPrinting().toJson(updateBucketConfigOptions.bucketPatch()), "application/merge-patch+json");
