@@ -16,25 +16,28 @@ package com.ibm.cloud.objectstorage.config.resource_configuration.v1.model;
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
 /**
- * The getBucketConfig options.
+ * The deleteBackupPolicy options.
  */
-public class GetBucketConfigOptions extends GenericModel {
+public class DeleteBackupPolicyOptions extends GenericModel {
 
   protected String bucket;
+  protected String policyId;
 
   /**
    * Builder.
    */
   public static class Builder {
     private String bucket;
+    private String policyId;
 
     /**
-     * Instantiates a new Builder from an existing GetBucketConfigOptions instance.
+     * Instantiates a new Builder from an existing DeleteBackupPolicyOptions instance.
      *
-     * @param getBucketConfigOptions the instance to initialize the Builder with
+     * @param deleteBackupPolicyOptions the instance to initialize the Builder with
      */
-    private Builder(GetBucketConfigOptions getBucketConfigOptions) {
-      this.bucket = getBucketConfigOptions.bucket;
+    private Builder(DeleteBackupPolicyOptions deleteBackupPolicyOptions) {
+      this.bucket = deleteBackupPolicyOptions.bucket;
+      this.policyId = deleteBackupPolicyOptions.policyId;
     }
 
     /**
@@ -47,44 +50,60 @@ public class GetBucketConfigOptions extends GenericModel {
      * Instantiates a new builder with required properties.
      *
      * @param bucket the bucket
+     * @param policyId the policyId
      */
-    public Builder(String bucket) {
+    public Builder(String bucket, String policyId) {
       this.bucket = bucket;
+      this.policyId = policyId;
     }
 
     /**
-     * Builds a GetBucketConfigOptions.
+     * Builds a DeleteBackupPolicyOptions.
      *
-     * @return the new GetBucketConfigOptions instance
+     * @return the new DeleteBackupPolicyOptions instance
      */
-    public GetBucketConfigOptions build() {
-      return new GetBucketConfigOptions(this);
+    public DeleteBackupPolicyOptions build() {
+      return new DeleteBackupPolicyOptions(this);
     }
 
     /**
      * Set the bucket.
      *
      * @param bucket the bucket
-     * @return the GetBucketConfigOptions builder
+     * @return the DeleteBackupPolicyOptions builder
      */
     public Builder bucket(String bucket) {
       this.bucket = bucket;
       return this;
     }
+
+    /**
+     * Set the policyId.
+     *
+     * @param policyId the policyId
+     * @return the DeleteBackupPolicyOptions builder
+     */
+    public Builder policyId(String policyId) {
+      this.policyId = policyId;
+      return this;
+    }
   }
 
-  protected GetBucketConfigOptions() { }
+  protected DeleteBackupPolicyOptions() { }
 
-  protected GetBucketConfigOptions(Builder builder) {
+  protected DeleteBackupPolicyOptions(Builder builder) {
     com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.bucket,
       "bucket cannot be empty");
+    com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.policyId,
+      "policyId cannot be empty");
     bucket = builder.bucket;
+    policyId = builder.policyId;
   }
 
   /**
    * New builder.
    *
-   * @return a GetBucketConfigOptions builder
+   * @return a DeleteBackupPolicyOptions builder
    */
   public Builder newBuilder() {
     return new Builder(this);
@@ -93,12 +112,23 @@ public class GetBucketConfigOptions extends GenericModel {
   /**
    * Gets the bucket.
    *
-   * Name of a bucket.
+   * name of the bucket affected.
    *
    * @return the bucket
    */
   public String bucket() {
     return bucket;
+  }
+
+  /**
+   * Gets the policyId.
+   *
+   * uuid of the BackupPolicy.
+   *
+   * @return the policyId
+   */
+  public String policyId() {
+    return policyId;
   }
 }
 

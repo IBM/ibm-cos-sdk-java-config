@@ -16,9 +16,9 @@ package com.ibm.cloud.objectstorage.config.resource_configuration.v1.model;
 import com.ibm.cloud.sdk.core.service.model.GenericModel;
 
 /**
- * The getBucketConfig options.
+ * The listBackupPolicies options.
  */
-public class GetBucketConfigOptions extends GenericModel {
+public class ListBackupPoliciesOptions extends GenericModel {
 
   protected String bucket;
 
@@ -29,12 +29,12 @@ public class GetBucketConfigOptions extends GenericModel {
     private String bucket;
 
     /**
-     * Instantiates a new Builder from an existing GetBucketConfigOptions instance.
+     * Instantiates a new Builder from an existing ListBackupPoliciesOptions instance.
      *
-     * @param getBucketConfigOptions the instance to initialize the Builder with
+     * @param listBackupPoliciesOptions the instance to initialize the Builder with
      */
-    private Builder(GetBucketConfigOptions getBucketConfigOptions) {
-      this.bucket = getBucketConfigOptions.bucket;
+    private Builder(ListBackupPoliciesOptions listBackupPoliciesOptions) {
+      this.bucket = listBackupPoliciesOptions.bucket;
     }
 
     /**
@@ -53,19 +53,19 @@ public class GetBucketConfigOptions extends GenericModel {
     }
 
     /**
-     * Builds a GetBucketConfigOptions.
+     * Builds a ListBackupPoliciesOptions.
      *
-     * @return the new GetBucketConfigOptions instance
+     * @return the new ListBackupPoliciesOptions instance
      */
-    public GetBucketConfigOptions build() {
-      return new GetBucketConfigOptions(this);
+    public ListBackupPoliciesOptions build() {
+      return new ListBackupPoliciesOptions(this);
     }
 
     /**
      * Set the bucket.
      *
      * @param bucket the bucket
-     * @return the GetBucketConfigOptions builder
+     * @return the ListBackupPoliciesOptions builder
      */
     public Builder bucket(String bucket) {
       this.bucket = bucket;
@@ -73,9 +73,9 @@ public class GetBucketConfigOptions extends GenericModel {
     }
   }
 
-  protected GetBucketConfigOptions() { }
+  protected ListBackupPoliciesOptions() { }
 
-  protected GetBucketConfigOptions(Builder builder) {
+  protected ListBackupPoliciesOptions(Builder builder) {
     com.ibm.cloud.sdk.core.util.Validator.notEmpty(builder.bucket,
       "bucket cannot be empty");
     bucket = builder.bucket;
@@ -84,7 +84,7 @@ public class GetBucketConfigOptions extends GenericModel {
   /**
    * New builder.
    *
-   * @return a GetBucketConfigOptions builder
+   * @return a ListBackupPoliciesOptions builder
    */
   public Builder newBuilder() {
     return new Builder(this);
@@ -93,7 +93,7 @@ public class GetBucketConfigOptions extends GenericModel {
   /**
    * Gets the bucket.
    *
-   * Name of a bucket.
+   * Name of the COS Bucket name.
    *
    * @return the bucket
    */
